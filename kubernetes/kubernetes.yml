@@ -3,36 +3,36 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 789d91df2efbbee991a6c55a5d35b23521b52b21
-    app.quarkus.io/build-timestamp: 2023-04-03 - 15:38:59 +0000
+    app.quarkus.io/commit-id: d9dcb43aca898d38dfd9109229bc3e1088b8a2a8
+    app.quarkus.io/build-timestamp: 2023-04-03 - 15:45:40 +0000
   labels:
-    app.kubernetes.io/name: camel_quarkus_iot_jvm
+    app.kubernetes.io/name: camel-quarkus-iot-jvm
     app.kubernetes.io/version: "1.0"
-  name: camel_quarkus_iot_jvm
+  name: camel-quarkus-iot-jvm
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: camel_quarkus_iot_jvm
+      app.kubernetes.io/name: camel-quarkus-iot-jvm
       app.kubernetes.io/version: "1.0"
   template:
     metadata:
       annotations:
-        app.quarkus.io/commit-id: 789d91df2efbbee991a6c55a5d35b23521b52b21
-        app.quarkus.io/build-timestamp: 2023-04-03 - 15:38:59 +0000
+        app.quarkus.io/commit-id: d9dcb43aca898d38dfd9109229bc3e1088b8a2a8
+        app.quarkus.io/build-timestamp: 2023-04-03 - 15:45:40 +0000
       labels:
-        app.kubernetes.io/name: camel_quarkus_iot_jvm
+        app.kubernetes.io/name: camel-quarkus-iot-jvm
         app.kubernetes.io/version: "1.0"
     spec:
       containers:
         - env:
-            - name: KUBERNETES_NAMESPACE
+            - name: default
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          image: zbendhiba/camel_quarkus_iot_jvm:1.0
+          image: zbendhiba/camel-quarkus-iot-jvm:1.0
           imagePullPolicy: Always
-          name: camel_quarkus_iot_jvm
+          name: camel-quarkus-iot-jvm
           ports:
             - containerPort: 8080
               name: http
@@ -42,12 +42,12 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    app.quarkus.io/commit-id: 789d91df2efbbee991a6c55a5d35b23521b52b21
-    app.quarkus.io/build-timestamp: 2023-04-03 - 15:38:59 +0000
+    app.quarkus.io/commit-id: d9dcb43aca898d38dfd9109229bc3e1088b8a2a8
+    app.quarkus.io/build-timestamp: 2023-04-03 - 15:45:40 +0000
   labels:
-    app.kubernetes.io/name: camel_quarkus_iot_jvm
+    app.kubernetes.io/name: camel-quarkus-iot-jvm
     app.kubernetes.io/version: "1.0"
-  name: camel_quarkus_iot_jvm
+  name: camel-quarkus-iot-jvm
 spec:
   ports:
     - name: http
@@ -55,6 +55,6 @@ spec:
       protocol: TCP
       targetPort: 8080
   selector:
-    app.kubernetes.io/name: camel_quarkus_iot_jvm
+    app.kubernetes.io/name: camel-quarkus-iot-jvm
     app.kubernetes.io/version: "1.0"
   type: ClusterIP
